@@ -1,0 +1,22 @@
+{
+  "name": "dataviz",
+  "version": "0.0.0",
+  "authors": [
+    "agordiichuk <agordiichuk@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.11",
+    "angularfire": "~0.8.2",
+    "bootstrap": "~3.2.0",
+    "d3": "~3.4.11"
+  }
+}
