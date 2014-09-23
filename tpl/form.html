@@ -1,0 +1,92 @@
+<div id="wrapper "> <!- Add class status-send -!>
+    <div class="container">
+        <div class=" col-md-6 col-md-offset-3">
+            <div class="panel panel-success survey-holder">
+                <div class="alert alert-dismissable alert-success text-center">
+                    <span><strong>Well done!</strong> You successfully send your data.</span>
+                </div>
+                <div class="panel-heading">
+                    <h3 class="panel-title">Survey</h3>
+                    <span class="note">Please enter your <b>data</b>. Just <b>pick an icon</b>.</span>
+                </div>
+                <div class="panel-body">
+                    <form id="survey-form">
+                        <div class="form-group">
+                            <div class="heading-group">
+                                <h2>You <span>are</span>...</h2>
+                            </div>
+                            <div class="btn-group row" data-toggle="buttons">
+                                <label class="btn btn-info  active">
+                                    <div class="holder">
+                                        <div class="frame">
+                                            <input data-text="Male" type="radio" name="options" id="option1"
+                                                   checked="checked"><i class="fa fa-male"></i>
+                                            <span>Male</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="btn btn-danger">
+                                    <div class="holder">
+                                        <div class="frame">
+                                            <input data-text="Female" type="radio" name="options" id="option2"><i
+                                                class="fa fa-female"></i>
+                                            <span>Female</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="heading-group">
+                                <h2>Your <span>job</span>...</h2>
+                            </div>
+
+                            <div class="btn-group row" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                    <div class="holder">
+                                        <div class="frame">
+                                            <input data-text="Frontend" type="radio" name="options1" id="option3"
+                                                   checked="checked"><i
+                                                class="fa fa-gamepad"></i>
+                                            <span> Front End Developer</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="btn btn-green">
+                                    <div class="holder">
+                                        <div class="frame">
+                                            <input data-text="Backend" type="radio" name="options1" id="option4"><i
+                                                class="fa fa-caret-square-o-right"></i>
+                                            <span> Back End Developer</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="btn btn-warning">
+                                    <div class="holder">
+                                        <div class="frame">
+                                            <input data-text="Qa" type="radio" name="options1" id="option5"><i
+                                                class="fa fa-wrench"></i>
+                                            <span>QA Developer</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="btn btn-inc">
+                                    <div class="holder">
+                                        <div class="frame">
+                                            <input data-text="Other" type="radio" name="options1" id="option6"><i
+                                                class="fa fa-users"></i>
+                                            <span>Other (IT) job</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button id="send" type="submit" class="btn btn-success">Send data</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

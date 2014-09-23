@@ -3,9 +3,12 @@
 var app = angular.module('dataviz', ['firebase', 'ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise('/');
+
   $stateProvider
     .state('form', {
-      url: "/form",
+      url: "/",
       templateUrl: "tpl/form.html",
       controller: 'formController'
     })
