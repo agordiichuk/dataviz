@@ -1,20 +1,27 @@
 'use strict';
 
-var app = angular.module('dataviz', ['firebase', 'ui.router']);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+var app = angular.module('dataviz', ['firebase', 'ui.router'])
 
-  $urlRouterProvider.otherwise('/');
+  .value('fbURL', 'https://vivid-inferno-817.firebaseio.com/')
 
-  $stateProvider
-    .state('form', {
-      url: "/",
-      templateUrl: "tpl/form.html",
-      controller: 'formController'
-    })
-    .state('chart', {
-      url: "/chart",
-      templateUrl: "tpl/chart.html",
-      controller: 'chartController'
-    });
-});
+  .factory('Statistics', function ($firebase, fbURL) {
+    return $firebase(new Firebase(fbURL)).$asArray();
+  })
+
+  .config(function ($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+      .state('form', {
+        url: "/",
+        templateUrl: "tpl/form.html",
+        controller: 'formController'
+      })
+      .state('chart', {
+        url: "/chart",
+        templateUrl: "tpl/chart.html",
+        controller: 'chartController'
+      });
+  });
