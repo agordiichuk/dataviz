@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dataviz').directive('chart', function () {
+angular.module('dataviz').directive('barchart', function () {
   return {
     restrict: 'E',
     scope: {
@@ -8,10 +8,11 @@ angular.module('dataviz').directive('chart', function () {
     },
     template: '<div class="chart-holder"></div>',
     link: function (scope, element, attrs) {
-
+      var chartHolder = $(element.find('div')[0]),
+        tooltip =d3.select("#tooltip");
 
       var margin = {top: 20, right: 20, bottom: 20, left: 40},
-        width = $('body').width() - margin.left - margin.right,
+        width = chartHolder.width() - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
       var x0 = d3.scale.ordinal()
@@ -64,6 +65,7 @@ angular.module('dataviz').directive('chart', function () {
       function updateChart() {
         var data = getDataModified(scope.stats);
 
+        svg.selectAll(".g rect").remove();
 
         if (scope.stats.length === 0) {
           svg.selectAll(".g rect")
@@ -90,7 +92,6 @@ angular.module('dataviz').directive('chart', function () {
         x0.domain(data.map(function (d) {
           return d.Job;
         }));
-
 
         x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()])
 
@@ -168,6 +169,19 @@ angular.module('dataviz').directive('chart', function () {
           .text(function (d) {
             return d;
           });
+
+        d3.selectAll(".g rect").on("mouseover", function(d) {
+          tooltip
+            .style("left", d3.event.pageX + 'px')
+            .style("top", d3.event.pageY - 50 + 'px')
+            .text(d.name + ' : ' + d.value);
+          tooltip.classed("hidden", false);
+          d3.select(this).attr("fill", "#000");
+        })
+          .on("mouseout", function(d) {
+            tooltip.classed("hidden", true);
+            d3.select(this).attr("fill", function(d) {return color(d)});
+          });
       };
 
       function getDataModified(data) {
@@ -208,18 +222,6 @@ angular.module('dataviz').directive('chart', function () {
             Female: res[key].Female
           }
         });
-      };
-
-
-      function clearData(hashMap) {
-        for (var key in hashMap) {
-          hashMap[key].Male = 0;
-          hashMap[key].Female = 0;
-          hashMap[key].ages.map(function (item) {
-            return item.value = 0;
-          })
-        }
-        return hashMap;
       };
     }
   }

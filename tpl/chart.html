@@ -1,2 +1,13 @@
-<chart stats="data"></chart>
-<span ng-click="removeData()" class="clear-data">CLEAR</span>
+<div id="tooltip" class="hidden">
+    <p><strong>Heading Column Chart</strong></p>
+    <p><strong class="count"><span id="value">100</span>%</strong></p>
+</div>
+<div class="charts-main row">
+    <div class="chart-box col-xs-6">
+        <barchart stats="data"></barchart>
+    </div>
+    <div class="chart-box col-xs-6">
+        <piechart stats="data"></piechart>
+    </div>
+</div>
+<span class="btn btn-success" ng-click="removeData()" class="clear-data"><i class="fa fa-trash-o"></i> &nbsp;CLEAR</span>

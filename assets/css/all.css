@@ -189,8 +189,33 @@ input[type="radio"], input[type="checkbox"]{
 .btn-green.active{
     background:#98c92f;
 }
+.page-container{
+    padding:20px;
+}
+.chart-holder{
+    background:#333333 url(../images/fill.png) repeat 50% 50%;
+    margin-bottom:20px;
+    min-height:420px;
+}
+#tooltip {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    font-size:20px;
+    font-weight:bold;
+    z-index:9999;
+    color:#000;
+}
+#tooltip.hidden {
+    display: none;
+}
+
 /* D3 styles */
-.arc path {
+.arc path.domain {
     stroke: #fff;
 }
 .axis path,
